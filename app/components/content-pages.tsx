@@ -17,12 +17,12 @@ function Frame({ children }: { children: ReactNode }) {
 export function AboutView() {
   const { t } = useLanguage();
   const council = [
-    ["Pendeta Jemaat", "Church Pastor", "Pdt. [Nama Pendeta]"],
-    ["Ketua Majelis", "Council Chair", "[Nama Ketua Majelis]"],
-    ["Wakil Ketua", "Vice Chair", "[Nama Wakil Ketua]"],
-    ["Sekretaris", "Secretary", "[Nama Sekretaris]"],
-    ["Bendahara", "Treasurer", "[Nama Bendahara]"],
-    ["Koordinator Pelayanan", "Ministry Coordinator", "[Nama Koordinator]"],
+    ["Pendeta Jemaat", "Church Pastor", "Pdt. [Nama Pendeta]", "/council-pastor.webp"],
+    ["Ketua Majelis", "Council Chair", "[Nama Ketua Majelis]", "/council-chair.webp"],
+    ["Wakil Ketua", "Vice Chair", "[Nama Wakil Ketua]", "/council-vice-chair.webp"],
+    ["Sekretaris", "Secretary", "[Nama Sekretaris]", "/council-secretary.webp"],
+    ["Bendahara", "Treasurer", "[Nama Bendahara]", "/council-treasurer.webp"],
+    ["Koordinator Pelayanan", "Ministry Coordinator", "[Nama Koordinator]", "/council-ministry-coordinator.webp"],
   ];
   return (
     <Frame>
@@ -40,7 +40,7 @@ export function AboutView() {
       </section>
       <section className="content-section" id="majelis">
         <div className="section-heading"><div><p className="eyebrow"><span></span>{t("Pelayan jemaat", "Church leadership")}</p><h2>{t("Struktur", "Church")} <em>{t("Majelis", "Council")}</em></h2></div><p>{t("Susunan berikut masih berupa contoh. Nama dan periode pelayanan dapat diperbarui sesuai keputusan resmi gereja.", "The structure below is sample content. Names and service terms can be updated according to official church decisions.")}</p></div>
-        <div className="council-grid">{council.map(([idRole,enRole,name],i)=><article key={idRole}><span>{String(i+1).padStart(2,"0")}</span><p><small>{t(idRole,enRole)}</small><strong>{name}</strong></p></article>)}</div>
+        <div className="council-grid">{council.map(([idRole,enRole,name,image],i)=><article key={idRole}><img src={image} alt={t(`Ilustrasi ${idRole} POUK Graha Prima`, `${enRole} serving at POUK Graha Prima`)} loading="lazy"/><div className="council-card-number">{String(i+1).padStart(2,"0")}</div><p><small>{t(idRole,enRole)}</small><strong>{name}</strong></p></article>)}</div>
       </section>
     </Frame>
   );
@@ -64,7 +64,7 @@ export function AgendaView() {
           ></iframe>
         </div>
       </section>
-      <div className="content-section calendar-source-note"><span><i></i>{t("Tersinkron otomatis dari Google Calendar resmi POUK Graha Prima.", "Automatically synced from the official POUK Graha Prima Google Calendar.")}</span><a className="button navy" href={GOOGLE_CALENDAR_URL} target="_blank" rel="noreferrer">{t("Buka Google Calendar", "Open Google Calendar")} →</a></div>
+      <div className="content-section calendar-source-note"><span><i></i>{t("Jadwal kegiatan terbaru POUK Graha Prima.", "The latest POUK Graha Prima activity schedule.")}</span><a className="button navy" href={GOOGLE_CALENDAR_URL} target="_blank" rel="noreferrer">{t("Lihat kalender lengkap", "View full calendar")} →</a></div>
     </Frame>
   );
 }
@@ -72,26 +72,43 @@ export function AgendaView() {
 export function MinistriesView() {
   const { t } = useLanguage();
   const items = [
-    ["Sekolah Minggu","Sunday School","Minggu · 07.00 WIB","Anak-anak belajar mengenal kasih Tuhan melalui ibadah dan aktivitas kreatif.","Children discover God’s love through worship and creative activities."],
-    ["Pemuda & Remaja","Youth Ministry","Sabtu · 19.00 WIB","Ruang generasi muda untuk bertumbuh, berkarya, dan membangun persahabatan.","A place for young people to grow, create, and build friendships."],
-    ["Kaum Ibu","Women’s Fellowship","Sabtu · 17.00 WIB","Persekutuan dalam firman, doa, keluarga, dan kepedulian sosial.","Fellowship through the Word, prayer, family life, and social care."],
-    ["Kaum Bapak","Men’s Fellowship","Sabtu · 20.00 WIB","Penguatan iman dan peran sebagai teladan di keluarga serta jemaat.","Strengthening faith and leadership in family and church life."],
-    ["Lansia","Senior Fellowship","Selasa · 09.30 WIB","Kebersamaan, doa, kesehatan, dan pendampingan bagi jemaat lansia.","Community, prayer, wellness, and care for senior members."],
-    ["Musik & Multimedia","Music & Multimedia","Sesuai jadwal pelayanan","Melayani ibadah melalui musik, audio, visual, dokumentasi, dan siaran digital.","Supporting worship through music, audio, visuals, documentation, and digital broadcasting."],
+    ["Sekolah Minggu","Sunday School","Minggu · 07.00 WIB","Anak-anak belajar mengenal kasih Tuhan melalui ibadah dan aktivitas kreatif.","Children discover God’s love through worship and creative activities.","/ministry-sekolah-minggu.webp"],
+    ["Pemuda & Remaja","Youth & Teen Fellowship","Setiap awal minggu","Persekutuan bersama untuk bertumbuh dalam iman, berkarya, dan membangun persahabatan lintas usia.","A weekly fellowship to grow in faith, create, and build friendships across age groups.","/ministry-pemuda-remaja.webp"],
+    ["Pemuda","Youth Fellowship","Sesuai jadwal pelayanan","Ruang khusus pemuda untuk berdiskusi, bersekutu, dan mempersiapkan diri melayani.","A dedicated space for young adults to connect, discuss, and prepare to serve.","/ministry-pemuda.webp"],
+    ["Remaja","Teen Fellowship","Sesuai jadwal pelayanan","Persekutuan remaja yang hangat, relevan, dan mendukung pertumbuhan iman.","A welcoming, relevant fellowship that supports teens as they grow in faith.","/ministry-remaja.webp"],
+    ["Kaum Ibu","Women’s Fellowship","Sabtu · 17.00 WIB","Persekutuan dalam firman, doa, keluarga, dan kepedulian sosial.","Fellowship through the Word, prayer, family life, and social care.","/ministry-kaum-ibu.webp"],
+    ["Kaum Bapak","Men’s Fellowship","Sabtu · 20.00 WIB","Penguatan iman dan peran sebagai teladan di keluarga serta jemaat.","Strengthening faith and leadership in family and church life.","/ministry-kaum-bapak.webp"],
+    ["Lansia","Senior Fellowship","Selasa · 09.30 WIB","Kebersamaan, doa, kesehatan, dan pendampingan bagi jemaat lansia.","Community, prayer, wellness, and care for senior members.","/ministry-lansia.webp"],
   ];
-  return <Frame><PageHero eyebrowId="Bertumbuh & melayani" eyebrowEn="Grow & serve" titleId="Bidang Pelayanan" titleEn="Our Ministries" descriptionId="Setiap generasi memiliki ruang untuk bertumbuh, membangun relasi, dan mengambil bagian." descriptionEn="Every generation has a place to grow, build relationships, and take part."/><section className="content-section ministry-directory">{items.map((item,i)=><article key={item[0]}><span>{String(i+1).padStart(2,"0")}</span><small>{item[2]}</small><h2>{t(item[0],item[1])}</h2><p>{t(item[3],item[4])}</p><a href="mailto:gerejapoukgrahaprima@gmail.com?subject=Informasi%20Pelayanan">{t("Hubungi koordinator", "Contact the coordinator")} →</a></article>)}</section></Frame>;
+  return <Frame><PageHero eyebrowId="Bertumbuh & melayani" eyebrowEn="Grow & serve" titleId="Bidang Pelayanan" titleEn="Our Ministries" descriptionId="Setiap generasi memiliki ruang untuk bertumbuh, membangun relasi, dan mengambil bagian." descriptionEn="Every generation has a place to grow, build relationships, and take part."/><section className="content-section ministry-directory">{items.map((item,i)=><article key={item[0]}><img src={item[5]} alt={t(`Kegiatan ${item[0]} POUK Graha Prima`, `${item[1]} at POUK Graha Prima`)} loading="lazy"/><div className="ministry-card-number">{String(i+1).padStart(2,"0")}</div><small>{item[2]}</small><h2>{t(item[0],item[1])}</h2><p>{t(item[3],item[4])}</p><a href="mailto:gerejapoukgrahaprima@gmail.com?subject=Informasi%20Pelayanan">{t("Tanya jadwal pelayanan", "Ask about the schedule")} →</a></article>)}</section></Frame>;
 }
 
 type GalleryPhoto = { id: string; name: string; modified: string; thumbnailUrl: string; fullUrl: string; viewUrl: string };
 type GallerySection = { key: string; titleId: string; titleEn: string; folderUrl: string; photos: GalleryPhoto[] };
 
+const GALLERY_DATA_VERSION = "expanded-gallery-2026-08-12-v1";
+
 const galleryFolders: GallerySection[] = [
   { key: "ibadah-minggu", titleId: "Ibadah Minggu", titleEn: "Sunday Worship", folderUrl: "https://drive.google.com/drive/folders/1O-hYedcI6DKzHQrAbzSNQZ0cnRRo74Xr?usp=sharing", photos: [] },
-  { key: "persekutuan-pemuda", titleId: "Persekutuan Pemuda", titleEn: "Youth Fellowship", folderUrl: "https://drive.google.com/drive/folders/1pJaitInyvgJTrqntTqlcqCscjb-EUHGe?usp=sharing", photos: [] },
   { key: "sekolah-minggu", titleId: "Sekolah Minggu", titleEn: "Sunday School", folderUrl: "https://drive.google.com/drive/folders/13BHATO9jay7bWSndDQEXDwbLxZv1E-AT?usp=sharing", photos: [] },
   { key: "ibadah-keluarga", titleId: "Ibadah Keluarga", titleEn: "Family Worship", folderUrl: "https://drive.google.com/drive/folders/1mmwxwlVF9AbejvA5s2EERfzWXlw-yknD?usp=sharing", photos: [] },
+  { key: "persekutuan-pemuda", titleId: "Persekutuan Pemuda", titleEn: "Youth Fellowship", folderUrl: "https://drive.google.com/drive/folders/1pJaitInyvgJTrqntTqlcqCscjb-EUHGe?usp=sharing", photos: [] },
+  { key: "kaum-ibu", titleId: "Kaum Ibu", titleEn: "Women’s Fellowship", folderUrl: "https://drive.google.com/drive/folders/1WUo-acEfi6UM_8M5RgiuVRQ6uj20gO7d?usp=sharing", photos: [] },
+  { key: "kaum-bapak", titleId: "Kaum Bapak", titleEn: "Men’s Fellowship", folderUrl: "https://drive.google.com/drive/folders/1NSEknVesNl1AJ1AWN6avkhs0s_MZfQg6?usp=sharing", photos: [] },
+  { key: "lansia", titleId: "Lansia", titleEn: "Senior Fellowship", folderUrl: "https://drive.google.com/drive/folders/1I2VrQx6Muv8cDYvyMCA6zptA4LqZ6gbW?usp=sharing", photos: [] },
   { key: "pelayanan-musik", titleId: "Pelayanan Musik", titleEn: "Music Ministry", folderUrl: "https://drive.google.com/drive/folders/1Z54a_NyFIwlVPBAmvKhGS7RVTUL-2Xlk?usp=sharing", photos: [] },
-  { key: "kebersamaan-jemaat", titleId: "Kebersamaan Jemaat", titleEn: "Church Fellowship", folderUrl: "https://drive.google.com/drive/folders/1OJggteM1xkTowT4BJkNrj-ZyisZlgbv-?usp=sharing", photos: [] },
+  { key: "ibadah-padang-pemuda-remaja", titleId: "Ibadah Padang Pemuda & Remaja", titleEn: "Youth & Teen Outdoor Worship", folderUrl: "https://drive.google.com/drive/folders/1PCRPcG6DGX1ibb7ZBbDKrewKH3JCCsj-?usp=sharing", photos: [] },
+  { key: "retret-pemuda-remaja", titleId: "Retret Pemuda & Remaja", titleEn: "Youth & Teen Retreat", folderUrl: "https://drive.google.com/drive/folders/1YuTEzbr-Ox5SZ0yEAOxba4sdhBYx-h3M?usp=sharing", photos: [] },
+  { key: "kkr", titleId: "KKR", titleEn: "Revival Service", folderUrl: "https://drive.google.com/drive/folders/1TylSRoACIA5LdBmCCFUg3Kl-o-kBL6kk?usp=sharing", photos: [] },
+  { key: "sidi", titleId: "SIDI", titleEn: "Confirmation", folderUrl: "https://drive.google.com/drive/folders/1zpDVFzUako4yBLUCNBm3GhqEhb4EUOF9?usp=sharing", photos: [] },
+  { key: "baptis", titleId: "Baptis", titleEn: "Baptism", folderUrl: "https://drive.google.com/drive/folders/1LDlWPK_TjENLatbqnwMcXz1lzqs0uob6?usp=sharing", photos: [] },
+  { key: "paskah", titleId: "Paskah", titleEn: "Easter", folderUrl: "https://drive.google.com/drive/folders/1DUhP1Nm5NrSTgddW1i49fpzckw0_IDST?usp=sharing", photos: [] },
+  { key: "paskah-sekolah-minggu", titleId: "Paskah Sekolah Minggu", titleEn: "Sunday School Easter", folderUrl: "https://drive.google.com/drive/folders/1bQ-ram2vQYrgQclXa_VMjan18uwcl9Li?usp=sharing", photos: [] },
+  { key: "natal-jemaat", titleId: "Natal Jemaat", titleEn: "Congregational Christmas", folderUrl: "https://drive.google.com/drive/folders/1ggCkJWlz_-WVhxpmu6T7Jwomvb5Fjuku?usp=sharing", photos: [] },
+  { key: "natal-umum", titleId: "Natal Umum", titleEn: "Christmas Celebration", folderUrl: "https://drive.google.com/drive/folders/1l-sbr8xkZU0mKJOgYbWuM-Vz2y6dwPwT?usp=sharing", photos: [] },
+  { key: "malam-natal", titleId: "Malam Natal", titleEn: "Christmas Eve", folderUrl: "https://drive.google.com/drive/folders/1NIwDbZ_xzaZeP5W_xwtqLPLthd5tTV5c?usp=sharing", photos: [] },
+  { key: "natal-pemuda-remaja", titleId: "Natal Pemuda & Remaja", titleEn: "Youth & Teen Christmas", folderUrl: "https://drive.google.com/drive/folders/1XsxGP9xNnlJJVYuHdBi5B_1VPJkn48S5?usp=sharing", photos: [] },
+  { key: "natal-sekolah-minggu", titleId: "Natal Anak Sekolah Minggu", titleEn: "Sunday School Christmas", folderUrl: "https://drive.google.com/drive/folders/1uVNiHr0yeaNSAj95UdBHnte_QVe6aVL2?usp=sharing", photos: [] },
 ];
 
 export function GalleryView() {
@@ -102,10 +119,20 @@ export function GalleryView() {
 
   useEffect(() => {
     let cancelled = false;
-    fetch("/api/gallery")
+    fetch(`/api/gallery?v=${GALLERY_DATA_VERSION}`, { cache: "no-store" })
       .then((response) => response.ok ? response.json() : Promise.reject())
       .then((data) => {
-        if (!cancelled && Array.isArray(data.sections)) setSections(data.sections);
+        if (!cancelled && Array.isArray(data.sections)) {
+          const loadedByKey = new Map<string, GallerySection>(
+            data.sections.map((section: GallerySection) => [section.key, section]),
+          );
+          setSections(galleryFolders.map((section) => ({
+            ...section,
+            photos: Array.isArray(loadedByKey.get(section.key)?.photos)
+              ? loadedByKey.get(section.key)!.photos
+              : [],
+          })));
+        }
       })
       .catch(() => undefined)
       .finally(() => { if (!cancelled) setLoading(false); });
@@ -134,13 +161,12 @@ export function GalleryView() {
 
   return (
     <Frame>
-      <PageHero eyebrowId="Dokumentasi kegiatan" eyebrowEn="Activity highlights" titleId="Galeri Jemaat" titleEn="Church Gallery" descriptionId="Enam ruang dokumentasi yang otomatis menampilkan foto terbaru dari Google Drive resmi POUK Graha Prima." descriptionEn="Six collections automatically showing the latest photos from the official POUK Graha Prima Google Drive."/>
+      <PageHero eyebrowId="Dokumentasi kegiatan" eyebrowEn="Activity highlights" titleId="Galeri Jemaat" titleEn="Church Gallery" descriptionId="Lihat momen terbaru dari ibadah, persekutuan, dan pelayanan POUK Graha Prima." descriptionEn="See the latest moments from worship, fellowship, and ministry at POUK Graha Prima."/>
       <section className="content-section gallery-stream">
         {sections.map((section, sectionIndex) => (
           <section className="gallery-group" id={section.key} key={section.key}>
             <header className="gallery-group-header">
-              <div className="gallery-group-title"><span>{String(sectionIndex + 1).padStart(2, "0")}</span><div><p>{t("Dokumentasi terbaru", "Latest highlights")}</p><h2>{t(section.titleId, section.titleEn)}</h2></div></div>
-              <div className="gallery-group-action"><small><i></i>{t("Sinkron otomatis dari Google Drive", "Synced automatically from Google Drive")}</small><a href={section.folderUrl} target="_blank" rel="noreferrer">{t("Buka folder", "Open folder")} →</a></div>
+              <div className="gallery-group-title"><span>{String(sectionIndex + 1).padStart(2, "0")}</span><h2>{t(section.titleId, section.titleEn)}</h2></div>
             </header>
             <div className="drive-photo-row" aria-busy={loading}>
               {loading && !section.photos.length
@@ -152,7 +178,7 @@ export function GalleryView() {
                   </button>
                 ))}
             </div>
-            {!loading && !section.photos.length && <div className="gallery-empty"><p>{t("Belum ada foto yang dapat ditampilkan.", "No photos are available yet.")}</p><a href={section.folderUrl} target="_blank" rel="noreferrer">{t("Periksa folder Google Drive", "Check the Google Drive folder")} →</a></div>}
+            {!loading && !section.photos.length && <div className="gallery-empty"><p>{t("Belum ada foto yang dapat ditampilkan.", "No photos are available yet.")}</p><a href={section.folderUrl} target="_blank" rel="noreferrer">{t("Lihat dokumentasi lengkap", "View complete highlights")} →</a></div>}
           </section>
         ))}
       </section>
@@ -162,7 +188,7 @@ export function GalleryView() {
           <button className="gallery-nav gallery-prev" aria-label={t("Foto sebelumnya", "Previous photo")} onClick={(event) => { event.stopPropagation(); movePhoto(-1); }}>‹</button>
           <figure onClick={(event) => event.stopPropagation()}>
             <img src={activePhoto.fullUrl} alt={`${t(activeSection.titleId, activeSection.titleEn)} — ${activePhoto.name}`} onError={(event) => { event.currentTarget.src = "/gereja-pouk-graha-prima.png"; }}/>
-            <figcaption><span>{t(activeSection.titleId, activeSection.titleEn)}</span><a href={activePhoto.viewUrl} target="_blank" rel="noreferrer">{t("Buka foto asli di Drive", "Open original in Drive")} ↗</a></figcaption>
+            <figcaption><span>{t(activeSection.titleId, activeSection.titleEn)}</span><a href={activePhoto.viewUrl} target="_blank" rel="noreferrer">{t("Lihat foto ukuran penuh", "View full-size photo")} ↗</a></figcaption>
           </figure>
           <button className="gallery-nav gallery-next" aria-label={t("Foto berikutnya", "Next photo")} onClick={(event) => { event.stopPropagation(); movePhoto(1); }}>›</button>
         </div>

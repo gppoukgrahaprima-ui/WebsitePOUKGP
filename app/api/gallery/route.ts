@@ -16,11 +16,25 @@ type GalleryPhoto = {
 
 const DRIVE_FOLDERS: FolderConfig[] = [
   { key: "ibadah-minggu", titleId: "Ibadah Minggu", titleEn: "Sunday Worship", id: "1O-hYedcI6DKzHQrAbzSNQZ0cnRRo74Xr" },
-  { key: "persekutuan-pemuda", titleId: "Persekutuan Pemuda", titleEn: "Youth Fellowship", id: "1pJaitInyvgJTrqntTqlcqCscjb-EUHGe" },
   { key: "sekolah-minggu", titleId: "Sekolah Minggu", titleEn: "Sunday School", id: "13BHATO9jay7bWSndDQEXDwbLxZv1E-AT" },
   { key: "ibadah-keluarga", titleId: "Ibadah Keluarga", titleEn: "Family Worship", id: "1mmwxwlVF9AbejvA5s2EERfzWXlw-yknD" },
+  { key: "persekutuan-pemuda", titleId: "Persekutuan Pemuda", titleEn: "Youth Fellowship", id: "1pJaitInyvgJTrqntTqlcqCscjb-EUHGe" },
+  { key: "kaum-ibu", titleId: "Kaum Ibu", titleEn: "Women’s Fellowship", id: "1WUo-acEfi6UM_8M5RgiuVRQ6uj20gO7d" },
+  { key: "kaum-bapak", titleId: "Kaum Bapak", titleEn: "Men’s Fellowship", id: "1NSEknVesNl1AJ1AWN6avkhs0s_MZfQg6" },
+  { key: "lansia", titleId: "Lansia", titleEn: "Senior Fellowship", id: "1I2VrQx6Muv8cDYvyMCA6zptA4LqZ6gbW" },
   { key: "pelayanan-musik", titleId: "Pelayanan Musik", titleEn: "Music Ministry", id: "1Z54a_NyFIwlVPBAmvKhGS7RVTUL-2Xlk" },
-  { key: "kebersamaan-jemaat", titleId: "Kebersamaan Jemaat", titleEn: "Church Fellowship", id: "1OJggteM1xkTowT4BJkNrj-ZyisZlgbv-" },
+  { key: "ibadah-padang-pemuda-remaja", titleId: "Ibadah Padang Pemuda & Remaja", titleEn: "Youth & Teen Outdoor Worship", id: "1PCRPcG6DGX1ibb7ZBbDKrewKH3JCCsj-" },
+  { key: "retret-pemuda-remaja", titleId: "Retret Pemuda & Remaja", titleEn: "Youth & Teen Retreat", id: "1YuTEzbr-Ox5SZ0yEAOxba4sdhBYx-h3M" },
+  { key: "kkr", titleId: "KKR", titleEn: "Revival Service", id: "1TylSRoACIA5LdBmCCFUg3Kl-o-kBL6kk" },
+  { key: "sidi", titleId: "SIDI", titleEn: "Confirmation", id: "1zpDVFzUako4yBLUCNBm3GhqEhb4EUOF9" },
+  { key: "baptis", titleId: "Baptis", titleEn: "Baptism", id: "1LDlWPK_TjENLatbqnwMcXz1lzqs0uob6" },
+  { key: "paskah", titleId: "Paskah", titleEn: "Easter", id: "1DUhP1Nm5NrSTgddW1i49fpzckw0_IDST" },
+  { key: "paskah-sekolah-minggu", titleId: "Paskah Sekolah Minggu", titleEn: "Sunday School Easter", id: "1bQ-ram2vQYrgQclXa_VMjan18uwcl9Li" },
+  { key: "natal-jemaat", titleId: "Natal Jemaat", titleEn: "Congregational Christmas", id: "1ggCkJWlz_-WVhxpmu6T7Jwomvb5Fjuku" },
+  { key: "natal-umum", titleId: "Natal Umum", titleEn: "Christmas Celebration", id: "1l-sbr8xkZU0mKJOgYbWuM-Vz2y6dwPwT" },
+  { key: "malam-natal", titleId: "Malam Natal", titleEn: "Christmas Eve", id: "1NIwDbZ_xzaZeP5W_xwtqLPLthd5tTV5c" },
+  { key: "natal-pemuda-remaja", titleId: "Natal Pemuda & Remaja", titleEn: "Youth & Teen Christmas", id: "1XsxGP9xNnlJJVYuHdBi5B_1VPJkn48S5" },
+  { key: "natal-sekolah-minggu", titleId: "Natal Anak Sekolah Minggu", titleEn: "Sunday School Christmas", id: "1uVNiHr0yeaNSAj95UdBHnte_QVe6aVL2" },
 ];
 
 const FALLBACK_PHOTOS: Record<string, Array<[string, string, string]>> = {
@@ -63,14 +77,6 @@ const FALLBACK_PHOTOS: Record<string, Array<[string, string, string]>> = {
     ["1EGrUYeR21g5D1vCxk1a13ZbyOMbxY40r", "IMG_7954.JPG", "24 Des 2023"],
     ["1W1_ZdDqY2zhSLGQNkCmF6WlnXVJg6U2K", "IMG_7953.JPG", "24 Des 2023"],
     ["1_B1UgKBXMUQhZ7e63cfNpaR2PmD43xcw", "IMG_7952.JPG", "24 Des 2023"],
-  ],
-  "kebersamaan-jemaat": [
-    ["1FAzMW-kcFD0rlSa2qOc9s8Q7BVgkEaRh", "IMG_7939.JPG", "24 Des 2023"],
-    ["1kWFnTl6W3o3tKhHDqO6Av9Jsw16Ngs65", "IMG_7938.JPG", "24 Des 2023"],
-    ["15uDA_4LKG3OUGwDzVSvF4x5aqSwLumDr", "IMG_7937.JPG", "24 Des 2023"],
-    ["16QFyuwOiWV0uriSNfPUiH8HoBVUSjhaW", "IMG_7936.JPG", "24 Des 2023"],
-    ["1l6k6y_QJduan0lzSxNLo_K28DkqD3okv", "IMG_7935.JPG", "24 Des 2023"],
-    ["1zt7Um2we1NnZ6qUABp5hF-IPmrquYXv0", "IMG_7933.JPG", "24 Des 2023"],
   ],
 };
 
@@ -148,7 +154,7 @@ async function loadFolder(folder: FolderConfig) {
 export async function GET() {
   const sections = await Promise.all(DRIVE_FOLDERS.map(loadFolder));
   return Response.json(
-    { sections, syncedAt: new Date().toISOString() },
-    { headers: { "Cache-Control": "public, max-age=300, s-maxage=900, stale-while-revalidate=3600" } },
+    { sections, revision: "expanded-gallery-2026-08-12-v1", syncedAt: new Date().toISOString() },
+    { headers: { "Cache-Control": "public, max-age=60, s-maxage=300, stale-while-revalidate=600" } },
   );
 }

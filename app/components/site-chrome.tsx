@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "./language-provider";
 
-const DRIVE_URL = "https://www.drive.google.com/";
+const DRIVE_URL = "https://drive.google.com/drive/folders/1JuTWqqzA7RmsTEEKovOy7VROq3JYBG5A?usp=sharing";
 
 function Arrow() {
   return <svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg>;
@@ -96,7 +96,7 @@ export function SiteHeader() {
           <div className="nav-dropdown">
             <button type="button" aria-haspopup="true">{t("Media & Informasi", "Media & Information")} <span>⌄</span></button>
             <div className="dropdown-panel">
-              <a href={DRIVE_URL} target="_blank" rel="noreferrer">{t("Warta / Tata Ibadah", "Bulletin / Order of Worship")}</a>
+              <a href={DRIVE_URL} target="_blank" rel="noreferrer">{t("Warta & Tata Ibadah", "Bulletin & Order of Worship")}</a>
               <Link href="/galeri">{t("Galeri", "Gallery")}</Link>
               <Link href="/#youtube">YouTube</Link>
             </div>
@@ -124,7 +124,7 @@ export function SiteHeader() {
             <Link href="/persembahan" onClick={() => setMenuOpen(false)}><span>06</span>{t("Persembahan", "Giving")}<Arrow /></Link>
             <Link href="/#kontak" onClick={() => setMenuOpen(false)}><span>07</span>{t("Kontak", "Contact")}<Arrow /></Link>
           </nav>
-          <a className="button gold" href={DRIVE_URL} target="_blank" rel="noreferrer">{t("Buka Warta di Drive", "Open Bulletin on Drive")} <Arrow /></a>
+          <a className="button gold" href={DRIVE_URL} target="_blank" rel="noreferrer">{t("Buka Warta & Tata Ibadah", "Open Bulletin & Order of Worship")} <Arrow /></a>
         </div>
       )}
     </>
@@ -138,7 +138,7 @@ export function SiteFooter() {
       <div className="footer-top">
         <div className="footer-brand"><LogoBrand inverse /><p>{t("Persekutuan Oikoumene Umat Kristen", "Ecumenical Christian Fellowship")}<br/>Graha Prima, Tambun Selatan – Bekasi.</p></div>
         <div><h4>{t("Tentang", "About")}</h4><Link href="/tentang#sejarah">{t("Sejarah", "History")}</Link><Link href="/tentang#visi-misi">{t("Visi & Misi", "Vision & Mission")}</Link><Link href="/tentang#majelis">{t("Struktur Majelis", "Church Council")}</Link></div>
-        <div><h4>{t("Informasi", "Information")}</h4><Link href="/agenda">{t("Agenda", "Calendar")}</Link><Link href="/galeri">{t("Galeri", "Gallery")}</Link></div>
+        <div><h4>{t("Informasi", "Information")}</h4><a href={DRIVE_URL} target="_blank" rel="noreferrer">{t("Warta & Tata Ibadah", "Bulletin & Order of Worship")}</a><Link href="/agenda">{t("Agenda", "Calendar")}</Link><Link href="/galeri">{t("Galeri", "Gallery")}</Link></div>
         <div><h4>{t("Terhubung", "Connect")}</h4><a href="https://www.youtube.com/@POUKGRAHAPRIMA" target="_blank" rel="noreferrer">YouTube POUK GP</a><a href="https://www.instagram.com/parepgp/" target="_blank" rel="noreferrer">Instagram PaRe</a><a href="https://www.facebook.com/318785191552590" target="_blank" rel="noreferrer">Facebook</a></div>
       </div>
       <div className="footer-bottom"><span>© 2026 POUK Graha Prima</span><span>PGI Wilayah Jawa Barat</span><a href="#top">{t("Kembali ke atas", "Back to top")} ↑</a></div>

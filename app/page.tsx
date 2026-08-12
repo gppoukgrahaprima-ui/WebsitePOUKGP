@@ -47,17 +47,14 @@ const YOUTUBE_UPLOADS_PLAYLIST = "UU1Ti9veniOr4Ajm22mLQmyA";
 const GOOGLE_CALENDAR_EMBED_BASE =
   "https://calendar.google.com/calendar/embed?src=gppoukgrahaprima%40gmail.com&ctz=Asia%2FJakarta&mode=AGENDA&showTitle=0&showNav=1&showPrint=0&showTabs=0&showCalendars=0&showTz=0&bgcolor=%23F3EDDF";
 
-// Ganti dengan link folder resmi ketika sudah tersedia.
-const DRIVE_FOLDERS = {
-  warta: "https://www.drive.google.com/",
-  tataIbadah: "https://www.drive.google.com/",
-};
+const WARTA_TATA_IBADAH_URL =
+  "https://drive.google.com/drive/folders/1JuTWqqzA7RmsTEEKovOy7VROq3JYBG5A?usp=sharing";
 
 const ministries = [
-  { no: "01", idTitle: "Sekolah Minggu", enTitle: "Sunday School", idDesc: "Ruang anak mengenal kasih Tuhan dan bertumbuh bersama.", enDesc: "A place for children to discover God’s love and grow together.", idSchedule: "Minggu · 07.00 WIB", enSchedule: "Sunday · 7:00 AM" },
-  { no: "02", idTitle: "Pemuda & Remaja", enTitle: "Youth Ministry", idDesc: "Persekutuan generasi muda yang hangat, aktif, dan relevan.", enDesc: "A welcoming, active, and relevant fellowship for young people.", idSchedule: "Sabtu · 19.00 WIB", enSchedule: "Saturday · 7:00 PM" },
-  { no: "03", idTitle: "Kaum Ibu", enTitle: "Women’s Fellowship", idDesc: "Bertumbuh dalam firman, doa, dan kepedulian bersama.", enDesc: "Growing together through the Word, prayer, and compassionate care.", idSchedule: "Sabtu · 17.00 WIB", enSchedule: "Saturday · 5:00 PM" },
-  { no: "04", idTitle: "Kaum Bapak", enTitle: "Men’s Fellowship", idDesc: "Persekutuan dan penguatan peran dalam keluarga serta jemaat.", enDesc: "Fellowship that strengthens our role in family and church life.", idSchedule: "Sabtu · 20.00 WIB", enSchedule: "Saturday · 8:00 PM" },
+  { no: "01", image: "/ministry-sekolah-minggu.webp", idTitle: "Sekolah Minggu", enTitle: "Sunday School", idDesc: "Ruang anak mengenal kasih Tuhan dan bertumbuh bersama.", enDesc: "A place for children to discover God’s love and grow together.", idSchedule: "Minggu · 07.00 WIB", enSchedule: "Sunday · 7:00 AM" },
+  { no: "02", image: "/ministry-pemuda-remaja.webp", idTitle: "Pemuda & Remaja", enTitle: "Youth Ministry", idDesc: "Persekutuan generasi muda yang hangat, aktif, dan relevan.", enDesc: "A welcoming, active, and relevant fellowship for young people.", idSchedule: "Setiap awal minggu", enSchedule: "At the start of each week" },
+  { no: "03", image: "/ministry-kaum-ibu.webp", idTitle: "Kaum Ibu", enTitle: "Women’s Fellowship", idDesc: "Bertumbuh dalam firman, doa, dan kepedulian bersama.", enDesc: "Growing together through the Word, prayer, and compassionate care.", idSchedule: "Sabtu · 17.00 WIB", enSchedule: "Saturday · 5:00 PM" },
+  { no: "04", image: "/ministry-kaum-bapak.webp", idTitle: "Kaum Bapak", enTitle: "Men’s Fellowship", idDesc: "Persekutuan dan penguatan peran dalam keluarga serta jemaat.", enDesc: "Fellowship that strengthens our role in family and church life.", idSchedule: "Sabtu · 20.00 WIB", enSchedule: "Saturday · 8:00 PM" },
 ];
 
 export default function Home() {
@@ -90,7 +87,7 @@ export default function Home() {
           <p className="hero-copy">{t("Bertumbuh dalam iman, hidup dalam persekutuan, dan menjadi berkat bagi sesama.", "Growing in faith, living in fellowship, and becoming a blessing to others.")}</p>
           <div className="hero-actions">
             <a className="button gold" href="#jadwal">{t("Lihat Jadwal Ibadah", "View Worship Schedule")} <Icon name="arrow" /></a>
-            <a className="text-link light-link" href={DRIVE_FOLDERS.warta} target="_blank" rel="noreferrer">{t("Warta Jemaat", "Church Bulletin")} <Icon name="arrow" size={18} /></a>
+            <a className="text-link light-link" href={WARTA_TATA_IBADAH_URL} target="_blank" rel="noreferrer">{t("Warta & Tata Ibadah", "Bulletin & Order of Worship")} <Icon name="arrow" size={18} /></a>
           </div>
         </div>
         <div className="hero-aside">
@@ -99,7 +96,6 @@ export default function Home() {
           <div><strong>10.00</strong><small>{t("Ibadah Raya II", "Second Service")}</small></div>
           <a href="#kontak"><Icon name="map" size={18}/> Tambun Selatan, Bekasi</a>
         </div>
-        <span className="hero-scroll">{t("Gulir untuk menjelajah", "Scroll to explore")} <i></i></span>
       </section>
 
       <section className="quick-access" aria-label={t("Akses cepat", "Quick access")}>
@@ -108,14 +104,9 @@ export default function Home() {
           <span><small>{t("Setiap Minggu", "Every Sunday")}</small><strong>{t("Jadwal Ibadah", "Worship Schedule")}</strong></span>
           <Icon name="arrow" />
         </a>
-        <a className="quick-card" href={DRIVE_FOLDERS.warta} target="_blank" rel="noreferrer">
+        <a className="quick-card" href={WARTA_TATA_IBADAH_URL} target="_blank" rel="noreferrer">
           <span className="quick-icon"><Icon name="book" /></span>
-          <span><small>{t("Informasi Jemaat", "Church Information")}</small><strong>{t("Warta Jemaat", "Church Bulletin")}</strong></span>
-          <Icon name="arrow" />
-        </a>
-        <a className="quick-card" href={DRIVE_FOLDERS.tataIbadah} target="_blank" rel="noreferrer">
-          <span className="quick-icon"><Icon name="calendar" /></span>
-          <span><small>{t("Panduan Mingguan", "Weekly Guide")}</small><strong>{t("Tata Ibadah", "Order of Worship")}</strong></span>
+          <span><small>{t("Informasi & Panduan Mingguan", "Weekly Information & Guide")}</small><strong>{t("Warta & Tata Ibadah", "Bulletin & Order of Worship")}</strong></span>
           <Icon name="arrow" />
         </a>
         <a className="quick-card" href="#youtube">
@@ -149,46 +140,39 @@ export default function Home() {
         <div className="service-grid">
           <article className="service-card featured">
             <div className="service-top"><span>{t("Ibadah Raya I", "First Service")}</span><i>Onsite</i></div>
-            <strong className="service-time">07<sup>.00</sup></strong>
+            <strong className="service-time">07.00</strong>
             <p><Icon name="calendar" size={18}/> {t("Setiap hari Minggu", "Every Sunday")}</p>
             <p><Icon name="map" size={18}/> Gedung Gereja POUK Graha Prima</p>
             <a href="#kontak">{t("Petunjuk arah", "Directions")} <Icon name="arrow" size={18}/></a>
           </article>
           <article className="service-card">
             <div className="service-top"><span>{t("Sekolah Minggu", "Sunday School")}</span><i>Onsite</i></div>
-            <strong className="service-time">07<sup>.00</sup></strong>
+            <strong className="service-time">07.00</strong>
             <p><Icon name="users" size={18}/> {t("Ibadah dan pembinaan anak", "Children’s worship and discipleship")}</p>
             <p><Icon name="map" size={18}/> Gedung Gereja POUK Graha Prima</p>
             <a href="/pelayanan">{t("Lihat pelayanan", "View ministry")} <Icon name="arrow" size={18}/></a>
           </article>
           <article className="service-card">
             <div className="service-top"><span>{t("Ibadah Raya II", "Second Service")}</span><i>Onsite</i></div>
-            <strong className="service-time">10<sup>.00</sup></strong>
+            <strong className="service-time">10.00</strong>
             <p><Icon name="calendar" size={18}/> {t("Setiap hari Minggu", "Every Sunday")}</p>
             <p><Icon name="map" size={18}/> Gedung Gereja POUK Graha Prima</p>
             <a href="#kontak">{t("Petunjuk arah", "Directions")} <Icon name="arrow" size={18}/></a>
           </article>
         </div>
-        <p className="schedule-note">{t("Waktu dapat berubah pada hari raya atau kegiatan khusus. Cek Warta Jemaat atau hubungi sekretariat untuk konfirmasi.", "Times may change on holidays or for special events. Check the Church Bulletin or contact the church office to confirm.")}</p>
+        <p className="schedule-note">{t("Waktu dapat berubah pada hari raya atau kegiatan khusus. Cek Warta & Tata Ibadah atau hubungi sekretariat untuk konfirmasi.", "Times may change on holidays or for special events. Check the Bulletin & Order of Worship or contact the church office to confirm.")}</p>
       </section>
 
       <section className="warta section" id="warta">
         <div className="section-heading">
-          <div><p className="eyebrow"><span></span> {t("Tetap terhubung", "Stay connected")}</p><h2>{t("Warta &", "Bulletin &")} <em>{t("Informasi", "Information")}</em></h2></div>
-          <p>{t("Warta dan Tata Ibadah disimpan di Google Drive agar mudah dibaca atau diunduh tanpa login website.", "The Church Bulletin and Order of Worship are stored on Google Drive for easy access and download without a website login.")}</p>
+          <div><p className="eyebrow"><span></span> {t("Tetap terhubung", "Stay connected")}</p><h2>{t("Warta &", "Bulletin &")} <em>{t("Tata Ibadah", "Order of Worship")}</em></h2></div>
+          <p>{t("Baca warta jemaat, susunan liturgi, dan panduan ibadah mingguan dalam satu tempat.", "Read the church bulletin, liturgy, and weekly worship guide in one place.")}</p>
         </div>
         <div className="warta-grid">
           <article className="bulletin-card primary-bulletin">
-            <span className="bulletin-kicker">{t("Warta Jemaat", "Church Bulletin")}</span>
-            <div className="bulletin-art"><span>POUK</span><strong>{t("WARTA", "CHURCH")}<br/>{t("JEMAAT", "BULLETIN")}</strong><i>{t("Informasi pelayanan & kehidupan jemaat", "Ministry news & church life")}</i></div>
-            <div className="bulletin-bottom"><p><strong>{t("Folder Warta Jemaat", "Church Bulletin Folder")}</strong><small>{t("Buka kumpulan file di Google Drive", "Open the file collection on Google Drive")}</small></p><a href={DRIVE_FOLDERS.warta} target="_blank" rel="noreferrer" aria-label={t("Buka folder Warta Jemaat di Google Drive", "Open the Church Bulletin folder on Google Drive")}><Icon name="arrow" /></a></div>
-          </article>
-          <article className="bulletin-card order-card">
-            <span className="bulletin-kicker">{t("Tata Ibadah", "Order of Worship")}</span>
-            <div className="order-icon"><Icon name="book" size={36}/></div>
-            <h3>{t("Folder Tata Ibadah", "Order of Worship Folder")}</h3>
-            <p>{t("Kumpulan liturgi, panduan ibadah, dan file PDF mingguan akan disusun berdasarkan tanggal di Google Drive.", "Liturgies, worship guides, and weekly PDF files will be organized by date on Google Drive.")}</p>
-            <a className="text-link" href={DRIVE_FOLDERS.tataIbadah} target="_blank" rel="noreferrer">{t("Buka Google Drive", "Open Google Drive")} <Icon name="arrow" size={18}/></a>
+            <span className="bulletin-kicker">{t("Informasi & Panduan Mingguan", "Weekly Information & Guide")}</span>
+            <div className="bulletin-art"><span>POUK GRAHA PRIMA</span><strong>{t("WARTA &", "BULLETIN &")}<br/>{t("TATA IBADAH", "ORDER OF WORSHIP")}</strong><i>{t("Warta jemaat, liturgi, dan panduan ibadah mingguan", "Church news, liturgy, and weekly worship guide")}</i></div>
+            <div className="bulletin-bottom"><p><strong>{t("Warta & Tata Ibadah Lengkap", "Complete Bulletin & Order of Worship")}</strong><small>{t("Klik untuk membuka seluruh dokumen berdasarkan tanggal", "Open all documents organized by date")}</small></p><a href={WARTA_TATA_IBADAH_URL} target="_blank" rel="noreferrer" aria-label={t("Buka Warta dan Tata Ibadah lengkap", "Open the complete Bulletin and Order of Worship")}><Icon name="arrow" /></a></div>
           </article>
         </div>
       </section>
@@ -196,7 +180,7 @@ export default function Home() {
       <section className="agenda section" id="agenda">
         <div className="agenda-heading">
           <div><p className="eyebrow"><span></span> {t("Kalender pelayanan", "Ministry calendar")}</p><h2>{t("Hidup dalam", "Life in")}<br/><em>{t("persekutuan.", "fellowship.")}</em></h2></div>
-          <p>{t("Agenda mendatang tersinkron otomatis dari Google Calendar resmi POUK Graha Prima.", "Upcoming events are automatically synced from the official POUK Graha Prima Google Calendar.")}</p>
+          <p>{t("Lihat agenda kegiatan dan pelayanan POUK Graha Prima yang akan datang.", "See upcoming activities and ministry events at POUK Graha Prima.")}</p>
         </div>
         <div className="calendar-embed-shell calendar-embed-home">
           <iframe
@@ -207,7 +191,7 @@ export default function Home() {
             scrolling="no"
           ></iframe>
         </div>
-        <div className="agenda-sync-note"><span><i></i>{t("Tersinkron dari Google Calendar", "Synced from Google Calendar")}</span><a href="/agenda">{t("Lihat semua agenda", "View all events")} <Icon name="arrow" size={17}/></a></div>
+        <div className="agenda-sync-note"><span><i></i>{t("Agenda resmi POUK Graha Prima", "Official POUK Graha Prima calendar")}</span><a href="/agenda">{t("Lihat semua agenda", "View all events")} <Icon name="arrow" size={17}/></a></div>
       </section>
 
       <section className="ministries section" id="pelayanan">
@@ -218,12 +202,13 @@ export default function Home() {
         <div className="ministry-grid">
           {ministries.map((item) => (
             <article className="ministry-card" key={item.idTitle}>
+              <img src={item.image} alt="" aria-hidden="true" loading="lazy" />
               <div><span>{item.no}</span><Icon name="users" size={25}/></div>
               <h3>{language === "id" ? item.idTitle : item.enTitle}</h3><p>{language === "id" ? item.idDesc : item.enDesc}</p><small>{language === "id" ? item.idSchedule : item.enSchedule}</small>
             </article>
           ))}
         </div>
-        <div className="ministry-more"><p>{t("Pelayanan lainnya mencakup Majelis, Lansia, Rumah Tangga, Musik, Multimedia, serta Sosial & Diakonia.", "Other ministries include the Church Council, Seniors, Home Fellowship, Music, Multimedia, and Social Care & Diaconia.")}</p><a href="/pelayanan">{t("Lihat semua pelayanan", "View all ministries")} <Icon name="arrow" size={18}/></a></div>
+        <div className="ministry-more"><p>{t("Pelayanan lainnya mencakup Majelis, Pemuda, Remaja, Lansia, Rumah Tangga, serta Sosial & Diakonia.", "Other ministries include the Church Council, Youth, Teens, Seniors, Home Fellowship, and Social Care & Diaconia.")}</p><a href="/pelayanan">{t("Lihat semua pelayanan", "View all ministries")} <Icon name="arrow" size={18}/></a></div>
       </section>
 
       <section className="resources section" id="media-informasi">
@@ -257,7 +242,7 @@ export default function Home() {
         <div className="media-copy">
           <p className="eyebrow light"><span></span> {t("YouTube resmi", "Official YouTube")}</p>
           <h2>{t("Video terbaru", "Latest videos")}<br/><em>POUK Graha Prima.</em></h2>
-          <p>{t("Empat pemutar ini terhubung langsung ke daftar upload channel resmi. Video terbaru akan tampil otomatis tanpa perlu diperbarui manual di website.", "These four players are connected directly to the official channel upload list. The latest videos appear automatically without manual website updates.")}</p>
+          <p>{t("Saksikan rekaman ibadah, renungan, dan kegiatan terbaru dari channel resmi POUK Graha Prima.", "Watch the latest worship recordings, reflections, and activities from the official POUK Graha Prima channel.")}</p>
           <a className="button gold" href={YOUTUBE_CHANNEL_URL} target="_blank" rel="noreferrer">{t("Buka Channel YouTube", "Open YouTube Channel")} <Icon name="arrow" /></a>
         </div>
         <div className="youtube-showcase">
@@ -278,7 +263,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <p className="youtube-auto-note"><i></i> {t("Otomatis menampilkan empat upload terbaru", "Automatically showing the four latest uploads")}</p>
         </div>
       </section>
 

@@ -96,10 +96,8 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .hero-aside strong { font-family: Georgia, serif; font-size: 30px; font-weight: 400; }
 .hero-aside small { font-size: 12px; font-weight: 700; }
 .hero-aside a { margin-top: 12px; padding-top: 16px; border-top: 1px solid var(--line); display: flex; gap: 8px; align-items: center; font-size: 12px; font-weight: 700; }
-.hero-scroll { position: absolute; z-index: 2; bottom: 28px; left: 6vw; display: flex; align-items: center; gap: 13px; color: rgba(255,255,255,.62); font-size: 10px; text-transform: uppercase; letter-spacing: .16em; }
-.hero-scroll i { width: 52px; height: 1px; background: rgba(255,255,255,.4); }
 
-.quick-access { position: relative; z-index: 3; margin: -34px 4vw 0; display: grid; grid-template-columns: repeat(4,1fr); border: 1px solid rgba(11,37,69,.08); border-radius: 28px; overflow: hidden; background: white; box-shadow: 0 25px 65px rgba(15,40,67,.13); }
+.quick-access { position: relative; z-index: 3; margin: -34px 4vw 0; display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid rgba(11,37,69,.08); border-radius: 28px; overflow: hidden; background: white; box-shadow: 0 25px 65px rgba(15,40,67,.13); }
 .quick-card { text-align: left; min-height: 132px; border: 0; border-right: 1px solid var(--line); padding: 25px 24px; display: grid; grid-template-columns: 42px 1fr auto; align-items: center; gap: 14px; background: white; cursor: pointer; transition: background .25s ease, color .25s ease; }
 .quick-card:last-child { border-right: 0; }
 .quick-card:hover { background: var(--navy); color: white; }
@@ -138,14 +136,13 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .service-card:hover, .service-card.featured { background: rgba(255,255,255,.06); }
 .service-top { display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 700; }
 .service-top i { padding: 7px 10px; border: 1px solid rgba(232,208,154,.55); color: var(--gold-light); font-style: normal; font-size: 9px; letter-spacing: .15em; text-transform: uppercase; }
-.service-time { display: block; margin: 45px 0 40px; color: var(--gold-light); font-family: Georgia, serif; font-size: clamp(68px,7vw,106px); line-height: .8; font-weight: 400; letter-spacing: -.06em; }
-.service-time sup { font-size: .45em; vertical-align: top; }
+.service-time { display: block; margin: 45px 0 40px; color: var(--gold-light); font-family: Georgia, serif; font-size: clamp(68px,6.5vw,96px); line-height: .8; font-weight: 400; font-variant-numeric: tabular-nums; letter-spacing: -.055em; white-space: nowrap; }
 .service-card p { display: flex; gap: 10px; align-items: center; margin: 6px 0; color: rgba(255,255,255,.68); font-size: 13px; }
 .service-card > a { margin-top: auto; display: flex; justify-content: space-between; align-items: center; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.2); color: white; font-size: 12px; font-weight: 750; text-transform: uppercase; letter-spacing: .08em; }
 .schedule-note { max-width: 1400px; margin: 24px auto 0; color: rgba(255,255,255,.55); font-size: 12px; }
 
 .warta { background: white; }
-.warta-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.15fr 1fr; gap: 20px; }
+.warta-grid { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 20px; }
 .bulletin-card { min-height: 510px; border: 1px solid var(--line); border-radius: 28px; padding: 32px; display: flex; flex-direction: column; box-shadow: 0 20px 55px rgba(11,37,69,.06); }
 .bulletin-kicker { font-size: 10px; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
 .bulletin-art { flex: 1; margin: 25px 0 20px; padding: 42px; border-radius: 22px; color: white; background: var(--navy); display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
@@ -185,14 +182,18 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 
 .ministries { background: var(--ivory); }
 .ministry-grid { max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
-.ministry-card { min-height: 360px; padding: 30px; border: 1px solid var(--line); border-radius: 26px; display: flex; flex-direction: column; transition: .3s ease; }
-.ministry-card:last-child { border-right: 1px solid var(--line); }
-.ministry-card:hover { background: white; transform: translateY(-6px); box-shadow: 0 20px 40px rgba(11,37,69,.08); }
-.ministry-card > div { display: flex; justify-content: space-between; color: #a88951; }
+.ministry-card { min-height: 420px; padding: 30px; border: 1px solid rgba(255,255,255,.22); border-radius: 26px; display: flex; flex-direction: column; position: relative; isolation: isolate; overflow: hidden; background: var(--navy); color: white; box-shadow: 0 18px 42px rgba(11,37,69,.13); transition: transform .3s ease, box-shadow .3s ease; }
+.ministry-card::after { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(180deg, rgba(3,18,36,.24) 0%, rgba(3,18,36,.38) 34%, rgba(3,18,36,.96) 100%); }
+.ministry-card > img { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(.8) contrast(1.03); transition: transform .55s ease, filter .55s ease; }
+.ministry-card > :not(img) { position: relative; z-index: 2; }
+.ministry-card:last-child { border-right: 1px solid rgba(255,255,255,.22); }
+.ministry-card:hover { transform: translateY(-6px); box-shadow: 0 25px 55px rgba(11,37,69,.22); }
+.ministry-card:hover > img { transform: scale(1.045); filter: saturate(.95) contrast(1.02); }
+.ministry-card > div { display: flex; justify-content: space-between; color: var(--gold-light); }
 .ministry-card > div span { font-family: Georgia,serif; }
-.ministry-card h3 { margin: 80px 0 16px; color: var(--navy); font-size: 25px; letter-spacing: -.03em; }
-.ministry-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
-.ministry-card > small { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--line); color: var(--navy); font-weight: 750; }
+.ministry-card h3 { margin: auto 0 14px; padding-top: 100px; color: white; font-size: 27px; letter-spacing: -.03em; text-shadow: 0 2px 18px rgba(0,0,0,.34); }
+.ministry-card p { margin: 0; color: rgba(255,255,255,.78); font-size: 14px; line-height: 1.65; }
+.ministry-card > small { margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.26); color: var(--gold-light); font-weight: 750; }
 .ministry-more { max-width: 1400px; margin: 25px auto 0; display: flex; justify-content: space-between; gap: 30px; color: var(--muted); font-size: 13px; }
 .ministry-more p { margin: 0; }
 .ministry-more a { display: flex; gap: 8px; align-items: center; color: var(--navy); font-weight: 750; }
@@ -281,13 +282,17 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .vision-grid h3 { max-width: 520px; margin: 95px 0 0; font-family: Georgia,serif; font-size: 39px; line-height: 1.2; font-weight: 400; }
 .vision-grid ul { margin: 70px 0 0; padding-left: 20px; display: grid; gap: 20px; color: rgba(255,255,255,.72); line-height: 1.55; }
 .council-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-.council-grid article { min-height: 180px; padding: 28px; border: 1px solid var(--line); border-radius: 24px; display: flex; flex-direction: column; justify-content: space-between; background: rgba(255,255,255,.66); transition: transform .25s ease, box-shadow .25s ease; }
+.council-grid article { min-height: 360px; padding: 28px; border: 1px solid rgba(255,255,255,.22); border-radius: 24px; display: flex; flex-direction: column; justify-content: space-between; position: relative; isolation: isolate; overflow: hidden; background: var(--navy); color: white; box-shadow: 0 18px 42px rgba(11,37,69,.12); transition: transform .25s ease, box-shadow .25s ease; }
+.council-grid article::after { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(180deg,rgba(3,18,36,.18),rgba(3,18,36,.34) 42%,rgba(3,18,36,.96) 100%); }
+.council-grid article > img { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(.78); transition: transform .55s ease, filter .55s ease; }
+.council-grid article > :not(img) { position: relative; z-index: 2; }
 .council-grid article:nth-child(3n), .council-grid article:nth-child(n+4) { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.council-grid article:hover { transform: translateY(-4px); box-shadow: 0 18px 42px rgba(11,37,69,.08); }
-.council-grid > article > span { color: #a7803d; font-family: Georgia,serif; }
+.council-grid article:hover { transform: translateY(-5px); box-shadow: 0 25px 55px rgba(11,37,69,.22); }
+.council-grid article:hover > img { transform: scale(1.045); filter: saturate(.95); }
+.council-card-number { color: var(--gold-light); font-family: Georgia,serif; }
 .council-grid p { margin: 0; display: flex; flex-direction: column; gap: 7px; }
-.council-grid small { color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
-.council-grid strong { font-size: 18px; }
+.council-grid small { color: var(--gold-light); font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.council-grid strong { color: white; font-size: 18px; text-shadow: 0 2px 18px rgba(0,0,0,.34); }
 
 .event-layout { display: grid; grid-template-columns: 380px 1fr; gap: 70px; align-items: start; }
 .calendar-card { position: sticky; top: 110px; padding: 30px; border: 1px solid var(--line); border-radius: 28px; background: white; box-shadow: 0 20px 55px rgba(11,37,69,.08); }
@@ -314,14 +319,18 @@ h1 em, h2 em { font-family: Georgia, 'Times New Roman', serif; font-weight: 400;
 .calendar-embed-page { height: min(780px,78vh); min-height: 620px; }
 
 .ministry-directory { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
-.ministry-directory article { min-height: 390px; padding: 34px; display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 26px; background: white; transition: transform .25s ease, box-shadow .25s ease; }
+.ministry-directory article { min-height: 460px; padding: 34px; display: flex; flex-direction: column; position: relative; isolation: isolate; overflow: hidden; border: 1px solid rgba(255,255,255,.22); border-radius: 26px; background: var(--navy); color: white; box-shadow: 0 18px 42px rgba(11,37,69,.13); transition: transform .25s ease, box-shadow .25s ease; }
+.ministry-directory article::after { content: ""; position: absolute; z-index: 1; inset: 0; background: linear-gradient(180deg,rgba(3,18,36,.18),rgba(3,18,36,.32) 33%,rgba(3,18,36,.98) 100%); }
+.ministry-directory article > img { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: saturate(.8) contrast(1.03); transition: transform .55s ease, filter .55s ease; }
+.ministry-directory article > :not(img) { position: relative; z-index: 2; }
 .ministry-directory article:nth-child(3n), .ministry-directory article:nth-child(n+4) { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-.ministry-directory article:hover { transform: translateY(-5px); box-shadow: 0 22px 50px rgba(11,37,69,.09); }
-.ministry-directory article > span { color: #aa8340; font-family: Georgia,serif; }
-.ministry-directory article > small { margin-top: 70px; color: var(--muted); font-size: 10px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
-.ministry-directory h2 { margin: 15px 0; font-size: 35px; }
-.ministry-directory p { margin: 0; color: var(--muted); line-height: 1.65; }
-.ministry-directory a { margin-top: auto; color: var(--navy); font-size: 12px; font-weight: 800; }
+.ministry-directory article:hover { transform: translateY(-5px); box-shadow: 0 25px 55px rgba(11,37,69,.22); }
+.ministry-directory article:hover > img { transform: scale(1.045); filter: saturate(.95) contrast(1.02); }
+.ministry-card-number { color: var(--gold-light); font-family: Georgia,serif; }
+.ministry-directory article > small { margin-top: auto; color: var(--gold-light); font-size: 10px; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; }
+.ministry-directory h2 { margin: 15px 0; color: white; font-size: 35px; text-shadow: 0 2px 18px rgba(0,0,0,.34); }
+.ministry-directory p { margin: 0 0 24px; color: rgba(255,255,255,.8); line-height: 1.65; }
+.ministry-directory a { margin-top: 0; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.25); color: white; font-size: 12px; font-weight: 800; }
 
 .gallery-stream { max-width: 1500px; padding-top: 45px; }
 .gallery-group { padding: 62px 0 70px; border-bottom: 1px solid var(--line); }
@@ -448,12 +457,10 @@ footer { padding: 78px 5vw 26px; background: #061a31; color: white; }
   .site-header { grid-template-columns: 1fr auto; }
   .hero-content { width: 72vw; }
   .hero-aside { display: none; }
-  .quick-access { grid-template-columns: repeat(2,1fr); margin: 0; }
-  .quick-card:nth-child(2) { border-right: 0; }
-  .quick-card:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .quick-access { grid-template-columns: repeat(3,1fr); margin: 0; }
   .welcome { gap: 60px; }
   .welcome-art { min-height: 500px; }
-  .warta-grid { grid-template-columns: 1fr 1fr; }
+  .warta-grid { grid-template-columns: 1fr; }
   .ministry-grid { grid-template-columns: repeat(2,1fr); }
   .ministry-card:nth-child(2) { border-right: 1px solid var(--line); }
   .ministry-card:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
@@ -488,7 +495,6 @@ footer { padding: 78px 5vw 26px; background: #061a31; color: white; }
   .hero-copy { font-size: 16px; margin-top: 22px; }
   .hero-actions { margin-top: 25px; gap: 17px; }
   .hero-actions .button { width: 100%; }
-  .hero-scroll { display: none; }
   .quick-access { grid-template-columns: 1fr; margin: -26px 14px 0; border-radius: 22px; }
   .quick-card { min-height: 102px; border-right: 0; border-bottom: 1px solid var(--line) !important; padding: 20px; }
   .quick-card:last-child { border-bottom: 0 !important; }
@@ -515,9 +521,9 @@ footer { padding: 78px 5vw 26px; background: #061a31; color: white; }
   .agenda-sync-note, .calendar-source-note { align-items: flex-start; flex-direction: column; }
   .calendar-embed-home { height: 500px; }
   .ministry-grid { grid-template-columns: 1fr; }
-  .ministry-card { min-height: 310px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line) !important; }
+  .ministry-card { min-height: 380px; border-right: 1px solid rgba(255,255,255,.22); border-bottom: 1px solid rgba(255,255,255,.22) !important; }
   .ministry-card:last-child { border-bottom: 0 !important; }
-  .ministry-card h3 { margin-top: 55px; }
+  .ministry-card h3 { margin-top: auto; }
   .ministry-more { display: block; line-height: 1.6; }
   .ministry-more a { margin-top: 15px; }
   .resource-grid { grid-template-columns: 1fr; }
@@ -560,7 +566,7 @@ footer { padding: 78px 5vw 26px; background: #061a31; color: white; }
   .calendar-live-heading { display: block; margin-bottom: 34px; }
   .calendar-live-heading > p { margin-top: 22px; }
   .calendar-embed-page { height: 620px; min-height: 0; border-radius: 20px; }
-  .ministry-directory article { min-height: 340px; padding: 28px; }
+  .ministry-directory article { min-height: 430px; padding: 28px; }
   .gallery-stream { padding-top: 28px; }
   .gallery-group { padding: 48px 0 54px; }
   .gallery-group-header { align-items: flex-start; flex-direction: column; gap: 18px; }
